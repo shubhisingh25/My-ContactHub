@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<section>
+
+
+  <div class="container d-flex align-items-center justify-content-center  py-5 mb-5 p-1">
+    <div class="card shadow-lg" style="max-width: 1200px; width: 100%;">
+      <!-- Header -->
+      <div class="card-header bg-primary text-white text-center py-4">
+        <h1 class="display-5 fw-bold mb-3">
+          <i class="bi bi-book me-2"></i>My ContactHub
+        </h1>
+        <p class="lead mb-0">
+          Effortlessly organize your contacts with our intuitive platform. Stay connected with the people who matter most.
+        </p>
+      </div>
+      
+      <div class="card-body p-0 ">
+        <div class="row g-0">
+          <!-- Left Column -->
+          <div class="col-lg-6 p-5 d-flex flex-column justify-content-center">
+            <div class="mb-0">
+            
+          <div class="d-flex align-items-center ">
+  <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+ <h5 class="fs-4 fw-bold mb-4" style="font-family: 'Roboto', sans-serif;">
+ 
+    A "MyContactHub" refers to software designed to efficiently organize, store, and manage contact information, often with advanced features for enhanced usability and integration with other tools.
+  </h5>
+</div>
+          
+            
+              <div class="d-flex align-items-center mb-1">
+                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                <h6 class="fs-4">Quick access to all your contacts</h6>
+              </div>
+              
+              <div class="d-flex align-items-center mb-1">
+                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                <h6 class="fs-4">Full  security</h6>
+              </div>
+              
+              <div class="d-flex align-items-center mb-1">
+                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
+                <h6 class="fs-4">Available on all devices</h6>
+              </div>
+            </div>
+            
+            <div class="d-flex gap-3 mt-3 ">
+              <a href="#" th:href="@{/signin}"  class="btn btn-warning btn-lg px-5 py-2 fw-bold">
+                <i  class="bi bi-rocket me-2"></i> Get Started
+              </a>
+            
+            </div>
+          </div>
+          
+          <!-- Right Column -->
+          <div class="col-lg-5 bg-light p-3">
+            <div class="row g-3 h-100">
+              <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body text-center p-4">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
+                      <i class="bi bi-lightning fs-3"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Fast Access</h4>
+                    <p class="text-muted mb-0">Find contacts instantly with powerful search</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body text-center p-4">
+                    <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
+                      <i class="bi bi-shield-lock fs-3"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Secure</h4>
+                    <p class="text-muted mb-0">Your data is always protected</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body text-center p-4">
+                    <div class="bg-info bg-opacity-10 text-info rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
+                      <i class="bi bi-people fs-3"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Smart Groups</h4>
+                    <p class="text-muted mb-0">Organize contacts automatically</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body text-center p-4">
+                    <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
+                      <i class="bi bi-graph-up fs-3"></i>
+                    </div>
+                    <h4 class="fw-bold mb-2">Insights</h4>
+                    <p class="text-muted mb-0">Understand your network better</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer -->
+      <div class="card-footer bg-dark text-white text-center py-3  mt-3">
+        <div class="d-flex justify-content-center gap-4">
+          <span class="d-flex align-items-center">
+            <i class="bi bi-check-circle text-success me-2"></i> Trusted by professionals worldwide
+          </span>
+          <span class="d-flex align-items-center">
+            <i class="bi bi-check-circle text-success me-2"></i> 18,000+ Users
+          </span>
+          <span class="d-flex align-items-center">
+            <i class="bi bi-check-circle text-success me-2"></i> 99.5% Uptime
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+</html>

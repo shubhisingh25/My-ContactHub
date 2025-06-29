@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8" />
+    <title>Your Contacts</title>
+</head>
+<body>
+<section class="py-2">
+  <div class="container-fluid">
+    <div class="card shadow border-0">
+      <div class="card-header bg-primary text-white py-3">
+        <h2 class="mb-0">
+          <i class="fas fa-address-book mr-2"></i> Your Contacts
+        </h2>
+      </div>
+
+      <!-- Search input -->
+      <div class="search-container my-4">
+        <div class="input-group shadow-sm">
+          <input
+            type="text"
+            id="search-input"
+            class="form-control form-control-lg border-primary"
+            placeholder="🔍 Type to search your contacts..."
+            onkeyup="search()"
+          />
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle mb-0">
+            <thead class="thead-light">
+              <tr class="fs-5">
+                <th>#ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th class="text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody id="contacts-table-body">
+              <tr th:each="c : ${contacts.content}">
+                <th th:text="${'SCM2025' + c.cId}"></th>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img th:src="@{'/img/' + ${c.image}}"
+                         alt="Profile"
+                         class="rounded-circle border me-2"
+                         style="height:50px; width:50px; object-fit:cover;">
+                    <div class="ms-3">
+                      <strong th:text="${c.name}"></strong>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a th:href="@{'/user/' + ${c.cId} + '/contact'}">
+                    <i class="fas fa-envelope text-primary"></i>
+                    <span th:text="${c.email} ?: 'Not provided'"></span>
+                  </a>
+                </td>
+                <td>
+                  <span th:if="${#strings.isEmpty(c.phone)}">Not provided</span>
+                  <a th:if="${!#strings.isEmpty(c.phone)}"
+                     th:href="@{'tel:' + ${c.phone}}">
+                    <i class="fas fa-phone text-success"></i>
+                    <span th:text="${c.phone}"></span>
+                  </a>
+                </td>
+                <td class="text-center">
+                  <div class="d-flex justify-content-center gap-2">
+                    <button class="btn btn-outline-danger btn-sm"
+                            th:onclick="|deleteContact(${c.cId})|">
+                      <i class="fas fa-trash"></i> Delete
+                    </button>
+                    <form method="post" th:action="@{'/user/update-contact/' + ${c.cId}}">
+                      <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fas fa-edit"></i> Update
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="card-footer bg-light py-3">
+        <nav aria-label="Contacts pagination">
+          <ul class="pagination justify-content-center mb-0">
+            <li th:if="${currentPage != 0}" class="page-item">
+              <a th:href="@{'/user/show-contacts/' + ${currentPage - 1}}" class="page-link">
+                <i class="fas fa-chevron-left"></i> Previous
+              </a>
+            </li>
+            <li th:each="i : ${#numbers.sequence(1, totalPages)}"
+                th:classappend="${currentPage == i - 1} ? 'active'" class="page-item">
+              <a th:href="@{'/user/show-contacts/' + ${i - 1}}" class="page-link" th:text="${i}"></a>
+            </li>
+            <li th:if="${currentPage + 1 != totalPages}" class="page-item">
+              <a th:href="@{'/user/show-contacts/' + ${currentPage + 1}}" class="page-link">
+                Next <i class="fas fa-chevron-right"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Link to your JavaScript file here -->
+<script src="/js/script.js"></script>
+</body>
+</html>

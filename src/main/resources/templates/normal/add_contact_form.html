@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+th:replace="normal/base::layout(~{::section})">
+<head>
+    <title>Add New Contact</title>
+   
+</head>
+
+<section >
+    <div class="container py-0">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-light">
+                        <h3 class="mb-0 text-center">
+                            <i class="fas fa-user-plus mr-2"></i>Update Your Contact
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form th:object="${contact}" 
+                              enctype="multipart/form-data"
+                              method="POST" 
+                              th:action="@{/user/process-contact}">
+
+                            <!-- Name -->
+                            <div class="form-group row mb-4">
+                                <label for="name" class="col-md-3 col-form-label font-weight-bold">Full Name</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-white"><i class="fas fa-user text-primary"></i></span>
+                                        </div>
+                                        <input th:value="${contact.name}"
+                                               type="text" th:field="*{name}" 
+                                               class="form-control form-control-lg"
+                                               id="name" placeholder="Enter full name"
+                                               required>
+                                        <div class="invalid-feedback"
+                                             th:if="${#fields.hasErrors('name')}" 
+                                             th:errors="*{name}">
+                                            Name error
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Nick Name -->
+                            <div class="form-group row mb-4">
+                                <label for="secondName" class="col-md-3 col-form-label font-weight-bold">Nickname</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-white"><i class="fas fa-user-tag text-primary"></i></span>
+                                        </div>
+                                        <input th:value="${contact.secondName}"
+                                               type="text" th:field="*{secondName}" class="form-control form-control-lg"
+                                               id="secondName" placeholder="Enter nickname">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="form-group row mb-4">
+                                <label for="phone" class="col-md-3 col-form-label font-weight-bold">Phone</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-white"><i class="fas fa-phone text-primary"></i></span>
+                                        </div>
+                                        <input th:value="${contact.phone}"
+                                               type="tel" th:field="*{phone}" class="form-control form-control-lg"
+                                               id="phone" placeholder="Enter phone number" required>
+                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">
+                                            Phone error
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group row mb-4">
+                                <label for="email" class="col-md-3 col-form-label font-weight-bold">Email</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-white"><i class="fas fa-envelope text-primary"></i></span>
+                                        </div>
+                                        <input th:value="${contact.email}"
+                                               type="email" th:field="*{email}" class="form-control form-control-lg"
+                                               id="email" placeholder="Enter email address">
+                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                                            Email error
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Work -->
+                            <div class="form-group row mb-4">
+                                <label for="work" class="col-md-3 col-form-label font-weight-bold">Work</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-white"><i class="fas fa-briefcase text-primary"></i></span>
+                                        </div>
+                                        <input th:value="${contact.work}"
+                                               type="text" th:field="*{work}" class="form-control form-control-lg"
+                                               id="work" placeholder="Enter profession">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="form-group row mb-4">
+                                <label for="description" class="col-md-3 col-form-label font-weight-bold">Description</label>
+                                <div class="col-md-9">
+                                    <textarea th:text="${contact.description}"
+                                              th:field="*{description}" class="form-control form-control-lg"
+                                              id="mytextarea" rows="5" placeholder="Enter description"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Profile Image -->
+                            <div class="form-group row mb-4">
+                                <label class="col-md-3 col-form-label font-weight-bold">Profile Image</label>
+                                <div class="col-md-9">
+                                    <div class="custom-file">
+                                        <input type="file" name="profileImage" class="custom-file-input" id="profileImage" accept="image/*">
+                                        <label class="custom-file-label" for="profileImage">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group row">
+                                <div class="col-md-9 offset-md-3">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block py-2">
+                                        <i class="fas fa-save mr-2"></i>Save Contact
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</section>
+</html>

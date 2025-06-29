@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sign Up</title>
+</head>
+<body>
+<section>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="text-center">Sign Up !!</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Flash Message -->
+                        <div th:if="${session.message}" th:object="${session.message}" 
+                             class="alert" th:classappend="*{type}">
+                            <span th:text="*{content}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <form th:action="@{/do_register}" method="post" th:object="${user}">
+                            
+                            <!-- Name Field -->
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" 
+                                       th:field="*{name}" 
+                                       th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}">
+                                    <span th:each="err : ${#fields.errors('name')}" th:text="${err}"></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Email Field -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" 
+                                       th:field="*{email}"
+                                       th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}">
+                                    <span th:each="err : ${#fields.errors('email')}" th:text="${err}"></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Password Field -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" 
+                                       th:field="*{password}"
+                                       th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}">
+                                    <span th:each="err : ${#fields.errors('password')}" th:text="${err}"></span>
+                                </div>
+                            </div>
+                            
+                            <!-- About Field -->
+                            <div class="mb-3">
+                                <label for="about" class="form-label">About</label>
+                                <textarea class="form-control" id="about" rows="3" th:field="*{about}"></textarea>
+                            </div>
+                            
+                            <!-- Agreement Checkbox -->
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreement" name="agreement">
+                                <label class="form-check-label" for="agreement">I agree to the terms and conditions</label>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

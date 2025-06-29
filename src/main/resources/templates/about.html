@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base::layout(~{::section})}">
+<section class="min-vh-100 py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+  <div class="container">
+    <div class="card shadow-lg border-0 rounded-4 p-4 bg-white bg-opacity-75">
+      <div class="card-body">
+      
+       <div class="card-header bg-primary text-white text-center py-4 mb-4">
+        <h1 class="display-5 fw-bold mb-3">
+         <i class="bi bi-info-circle-fill me-2"></i> My ContactHub
+        </h1>
+        <p class="lead mb-0">
+            My ContactHub is an intelligent platform designed to help you organize, secure, and visualize your contacts effortlessly.
+  Whether you're an individual or a team, our solution makes staying connected simple and effective.
+          
+        </p>
+      </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100 bg-light">
+              <div class="card-body">
+                <h3 class="h5 mb-3">
+                  <i class="bi bi-star-fill text-warning me-2"></i> Why Choose Us?
+                </h3>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <i class="bi bi-lightning-charge text-primary me-2"></i>
+                    <strong>Lightning-fast access</strong> to all your contacts.
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-shield-lock text-success me-2"></i>
+                    <strong>Enterprise-grade security</strong> with encrypted storage.
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-robot text-info me-2"></i>
+                    <strong>AI-powered smart groups</strong> and recommendations.
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-bar-chart-fill text-danger me-2"></i>
+                    <strong>Visual insights</strong> into your network and connections.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100 bg-light">
+              <div class="card-body">
+                <h3 class="h5 mb-3">
+                  <i class="bi bi-bullseye text-primary me-2"></i> Our Mission
+                </h3>
+                <p>
+                  To revolutionize how you build and manage relationships by combining powerful technology
+                  with an intuitive user experience.
+                </p>
+                <h3 class="h5 mt-4">
+                  <i class="bi bi-envelope-fill text-primary me-2"></i> Get in Touch
+                </h3>
+                <p>
+                  Questions? Reach out at
+                  <a href="mailto:support@smartcontactmanager.com" class="fw-semibold">
+                    support@MyContactHub.com
+                  </a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a th:href="@{/signup}" class="btn btn-lg btn-warning fw-semibold shadow px-4 py-2">
+            <i class="bi bi-rocket-takeoff-fill me-2"></i> Get Started Today
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</html>

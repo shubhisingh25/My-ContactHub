@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Details Page</title>
+</head>
+<body>
+<section>
+    <div class="card mr-3 ml-3" th:if="${contact != null}">
+        <div class="card-body">
+            <div class="container text-center">
+                <img style="height:200px; width:200px;"
+                     class="my_profile_picture rounded-circle"
+                     th:src="@{'/img/' + ${contact.image}}"
+                     alt="Contact image"/>
+
+                <h3 class="mt-3">
+                    <span th:text="${contact.name}">Name</span>
+                    <span th:if="${!#strings.isEmpty(contact.secondName)}">
+                        (<span th:text="${contact.secondName}"></span>)
+                    </span>
+                </h3>
+
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">ID</th>
+                            <td>SCM-USER-<span th:text="${contact.cId}"></span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email</th>
+                            <td>
+                                <a th:href="@{'mailto:' + ${contact.email}}" th:if="${!#strings.isEmpty(contact.email)}">
+                                    <i class="fas fa-envelope"></i>
+                                    <span th:text="${contact.email}"></span>
+                                </a>
+                                <span th:if="${#strings.isEmpty(contact.email)}">Not provided</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Phone</th>
+                            <td>
+                                <a th:href="@{'tel:' + ${contact.phone}}" th:if="${!#strings.isEmpty(contact.phone)}" class="text-success">
+                                    <i class="fas fa-phone"></i>
+                                    <span th:text="${contact.phone}"></span>
+                                </a>
+                                <span th:if="${#strings.isEmpty(contact.phone)}">Not provided</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Work</th>
+                            <td>
+                                <span th:text="${!#strings.isEmpty(contact.work) ? contact.work : 'Not provided'}"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="description mt-3" th:if="${!#strings.isEmpty(contact.description)}">
+                    <th:block th:utext="${contact.description}"></th:block>
+                </div>
+                
+                <div class="mt-4">
+                    <a th:href="@{/user/show-contacts/0}" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Back to Contacts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3 bg-danger text-white mr-3" th:unless="${contact != null}">
+        <h1>You don't have permission to see this contact...</h1>
+        <a th:href="@{/user/show-contacts/0}" class="btn btn-light mt-2">Back to Contacts</a>
+    </div>
+</section>
+</body>
+</html>
