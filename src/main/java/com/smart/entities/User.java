@@ -28,8 +28,7 @@ public class User {
     @Size(min = 6, max = 20, message = "Password must be between 6-20 characters")
     private String password;
  
-    @Column(name = "compact_view", nullable = false, columnDefinition = "boolean default false")
-    private Boolean compactView = false; 
+ 
     
     private String role;
     private boolean enabled;
