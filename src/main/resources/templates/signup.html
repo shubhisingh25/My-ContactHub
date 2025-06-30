@@ -50,9 +50,11 @@
                             <!-- Password Field -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" 
-                                       th:field="*{password}"
-                                       th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                               <input type="password" class="form-control" id="password"
+       th:field="*{password}"
+       minlength="6" maxlength="20" required
+       th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+
                                 <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}">
                                     <span th:each="err : ${#fields.errors('password')}" th:text="${err}"></span>
                                 </div>
