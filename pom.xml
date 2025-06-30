@@ -83,11 +83,7 @@
         <artifactId>spring-boot-starter-security</artifactId>
          <version>3.4.2</version>
      </dependency>
-     <dependency>
-     	<groupId>in.smartprogramming</groupId>
-     	<artifactId>HibernateCRUD</artifactId>
-     	<version>1.0</version>
-     </dependency>
+  
 	</dependencies>
 	
 	
