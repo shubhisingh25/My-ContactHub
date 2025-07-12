@@ -1,132 +1,239 @@
+
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       th:replace="~{base::layout(~{::section})}">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home Page</title>
+</head>
+
+<body>
 <section>
+  <div class="container-fluid ">
+    <div class=" border-0">
+    
+<div class="card-header text-center py-5 border-0" style="background-color: #f8fafc;">
+  <!-- Heading -->
+  <h1 class="display-3 fw-bold mb-4 lead text-muted mx-auto position-relative fw-semibold">
+    <span class="text-primary">
+      <i class="bi bi-stars me-2"></i>
+      My ContactHub
+      <i class="bi bi-stars ms-2"></i>
+    </span>
+  </h1>
 
-
-  <div class="container d-flex align-items-center justify-content-center  py-5 mb-5 p-1">
-    <div class="card shadow-lg" style="max-width: 1200px; width: 100%;">
-      <!-- Header -->
-      <div class="card-header bg-primary text-white text-center py-4">
-        <h1 class="display-5 fw-bold mb-3">
-          <i class="bi bi-book me-2"></i>My ContactHub
-        </h1>
-        <p class="lead mb-0">
-          Effortlessly organize your contacts with our intuitive platform. Stay connected with the people who matter most.
-        </p>
-      </div>
+  <!-- Subheading -->
+  <p class="lead text-muted mx-auto position-relative fw-semibold" style="max-width: 800px;">
+   <h2> <span class="d-inline-block me-1">✨</span>
+    The smartest way to 
+    <span class="text-primary fw-bold">manage</span>, 
+    <span class="text-primary fw-bold">organize</span>, and 
+    <span class="text-primary fw-bold">connect</span> with your contacts
+    <span class="d-inline-block ms-1">✨</span></h2>
+    <br class="d-none d-md-block" />
+    <h2>
+    <small class="d-block mt-1 text-muted fs-5 fw-normal">
+      <span class="d-inline-block me-2">🚀</span>
       
-      <div class="card-body p-0 ">
-        <div class="row g-0">
-          <!-- Left Column -->
-          <div class="col-lg-6 p-5 d-flex flex-column justify-content-center">
-            <div class="mb-0">
-            
-          <div class="d-flex align-items-center ">
-  <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
- <h5 class="fs-4 fw-bold mb-4" style="font-family: 'Roboto', sans-serif;">
- 
-    A "MyContactHub" refers to software designed to efficiently organize, store, and manage contact information, often with advanced features for enhanced usability and integration with other tools.
-  </h5>
+      Seamless • Secure • Powerful
+      <span class="d-inline-block ms-2">🔒</span>
+    </small></h2>
+  </p>
 </div>
-          
-            
-              <div class="d-flex align-items-center mb-1">
-                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
-                <h6 class="fs-4">Quick access to all your contacts</h6>
-              </div>
-              
-              <div class="d-flex align-items-center mb-1">
-                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
-                <h6 class="fs-4">Full  security</h6>
-              </div>
-              
-              <div class="d-flex align-items-center mb-1">
-                <i class="bi bi-check-circle-fill text-success me-3 fs-5"></i>
-                <h6 class="fs-4">Available on all devices</h6>
-              </div>
+
+      <!-- Main Body -->
+      <div class="card-body p-5">
+        <div class="row g-5 align-items-center">
+          <!-- Introduction -->
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <div class="mb-4">
+              <h2 class="fw-bold mb-3 display-6" style="font-family: 'Roboto', sans-serif;">
+                Why Choose MyContactHub?
+              </h2>
+              <p class="text-muted fs-5">
+                MyContactHub helps individuals and businesses keep their connections organized and accessible while ensuring top-notch security and seamless integration with your favorite tools.
+              </p>
             </div>
-            
-            <div class="d-flex gap-3 mt-3 ">
-              <a href="#" th:href="@{/signin}"  class="btn btn-warning btn-lg px-5 py-2 fw-bold">
-                <i  class="bi bi-rocket me-2"></i> Get Started
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-3">
+                <div class="icon-gradient me-3">
+                  <i class="bi bi-lightning-charge-fill fs-4"></i>
+                </div>
+                <span class="fs-5">Lightning-fast search and filtering</span>
+              </li>
+              <li class="d-flex align-items-center mb-3">
+                <div class="icon-gradient me-3">
+                  <i class="bi bi-shield-check fs-4"></i>
+                </div>
+                <span class="fs-5">Enterprise-grade security and encryption</span>
+              </li>
+              <li class="d-flex align-items-center mb-3">
+                <div class="icon-gradient me-3">
+                  <i class="bi bi-phone fs-4"></i>
+                </div>
+                <span class="fs-5">Access on web and mobile devices</span>
+              </li>
+            </ul>
+            <div class="mt-4">
+              <a href="#" th:href="@{/signin}" class="btn btn-primary btn-lg px-5 py-3 fw-bold shadow-lg animated-cta">
+                <i class="bi bi-rocket-takeoff me-2"></i> Start Managing Contacts
               </a>
-            
             </div>
           </div>
-          
-          <!-- Right Column -->
-          <div class="col-lg-5 bg-light p-3">
-            <div class="row g-3 h-100">
+
+          <!-- Features Grid -->
+          <div class="col-lg-6">
+            <div class="row g-4">
               <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center p-4">
-                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
-                      <i class="bi bi-lightning fs-3"></i>
-                    </div>
-                    <h4 class="fw-bold mb-2">Fast Access</h4>
-                    <p class="text-muted mb-0">Find contacts instantly with powerful search</p>
+                <div class="feature-card text-center p-4 h-100">
+                  <div class="feature-icon bg-primary bg-opacity-10 text-primary">
+                    <i class="bi bi-people-fill fs-1"></i>
                   </div>
+                  <h5 class="fw-bold mt-3">Smart Groups</h5>
+                  <p class="text-muted mb-0">Auto-organize contacts into dynamic groups.</p>
                 </div>
               </div>
-              
               <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center p-4">
-                    <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
-                      <i class="bi bi-shield-lock fs-3"></i>
-                    </div>
-                    <h4 class="fw-bold mb-2">Secure</h4>
-                    <p class="text-muted mb-0">Your data is always protected</p>
+                <div class="feature-card text-center p-4 h-100">
+                  <div class="feature-icon bg-success bg-opacity-10 text-success">
+                    <i class="bi bi-lock-fill fs-1"></i>
                   </div>
+                  <h5 class="fw-bold mt-3">Secure Data</h5>
+                  <p class="text-muted mb-0">Your data is encrypted and always safe.</p>
                 </div>
               </div>
-              
               <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center p-4">
-                    <div class="bg-info bg-opacity-10 text-info rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
-                      <i class="bi bi-people fs-3"></i>
-                    </div>
-                    <h4 class="fw-bold mb-2">Smart Groups</h4>
-                    <p class="text-muted mb-0">Organize contacts automatically</p>
+                <div class="feature-card text-center p-4 h-100">
+                  <div class="feature-icon bg-warning bg-opacity-10 text-warning">
+                    <i class="bi bi-graph-up-arrow fs-1"></i>
                   </div>
+                  <h5 class="fw-bold mt-3">Insights & Analytics</h5>
+                  <p class="text-muted mb-0">Gain insights into your network activity.</p>
                 </div>
               </div>
-              
               <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center p-4">
-                    <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:60px; height:60px;">
-                      <i class="bi bi-graph-up fs-3"></i>
-                    </div>
-                    <h4 class="fw-bold mb-2">Insights</h4>
-                    <p class="text-muted mb-0">Understand your network better</p>
+                <div class="feature-card text-center p-4 h-100">
+                  <div class="feature-icon bg-info bg-opacity-10 text-info">
+                    <i class="bi bi-globe2 fs-1"></i>
                   </div>
+                  <h5 class="fw-bold mt-3">Global Access</h5>
+                  <p class="text-muted mb-0">Stay connected wherever you are.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
+      <!-- Testimonials -->
+      <div class="py-4" style="background-color: #f8f9fa; border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="container">
+          <h2 class="text-center text-primary mb-4 fw-bold">
+            Trusted by Thousands of Professionals
+          </h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm p-4">
+                <p class="text-muted fst-italic mb-3">
+                  "MyContactHub has transformed how I keep track of clients and friends. It's fast, secure, and beautifully designed. The tagging system saves me hours every week!"
+                </p>
+                <div class="text-warning mb-2">
+                  ★ ★ ★ ★ ☆
+                </div>
+                <h6 class="fw-bold mb-0">— Priya Sharma, Freelancer</h6>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm p-4">
+                <p class="text-muted fst-italic mb-3">
+                  "A must-have tool for anyone serious about networking. The smart groups and analytics helped me increase my conversion rate by 30% in just two months."
+                </p>
+                <div class="text-warning mb-2">
+                  ★ ★ ★ ★ ★
+                </div>
+                <h6 class="fw-bold mb-0">— Rohan Mehta, Sales Manager</h6>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm p-4">
+                <p class="text-muted fst-italic mb-3">
+                  "I love how intuitive it is. The cross-device sync is flawless and the security features give me peace of mind for my investor contacts. Customer support is exceptional too."
+                </p>
+                <div class="text-warning mb-2">
+                  ★ ★ ★ ★ ★
+                </div>
+                <h6 class="fw-bold mb-0">— Anjali Verma, Entrepreneur</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action Banner -->
+      <div class="bg-primary text-white text-center py-5 mt-5 rounded shadow-sm">
+        <h3 class="fw-bold mb-3">
+          Ready to take control of your contacts?
+        </h3>
+        <p class="mb-4 text-light">
+          Join thousands of professionals who trust MyContactHub to manage their network.
+        </p>
+        <a href="#" th:href="@{/signup}" class="btn btn-warning btn-lg px-5 py-3 fw-bold shadow-sm">
+          <i class="bi bi-person-plus-fill me-2"></i> Create Your Free Account
+        </a>
+      </div>
+
       <!-- Footer -->
-      <div class="card-footer bg-dark text-white text-center py-3  mt-3">
-        <div class="d-flex justify-content-center gap-4">
-          <span class="d-flex align-items-center">
-            <i class="bi bi-check-circle text-success me-2"></i> Trusted by professionals worldwide
-          </span>
-          <span class="d-flex align-items-center">
-            <i class="bi bi-check-circle text-success me-2"></i> 18,000+ Users
-          </span>
-          <span class="d-flex align-items-center">
-            <i class="bi bi-check-circle text-success me-2"></i> 99.5% Uptime
-          </span>
+      <div class="mt-5" style="background-color: #f8f9fa; border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="container py-5">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="p-4 bg-white rounded-3 shadow-sm h-100 text-center" style="border-top: 3px solid #28a745;">
+                <div class="icon-wrapper bg-success bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
+                  <i class="bi bi-check-circle text-success fs-3"></i>
+                </div>
+                <h5 class="fw-bold mb-2">18,000+ Users</h5>
+                <p class="text-muted mb-0">Trusted by professionals worldwide</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-4 bg-white rounded-3 shadow-sm h-100 text-center" style="border-top: 3px solid #fd7e14;">
+                <div class="icon-wrapper bg-warning bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
+                  <i class="bi bi-rocket text-warning fs-3"></i>
+                </div>
+                <h5 class="fw-bold mb-2">99.5% Uptime</h5>
+                <p class="text-muted mb-0">Reliable and always available</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-4 bg-white rounded-3 shadow-sm h-100 text-center" style="border-top: 3px solid #17a2b8;">
+                <div class="icon-wrapper bg-info bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
+                  <i class="bi bi-shield-check text-info fs-3"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Enterprise Security</h5>
+                <p class="text-muted mb-0">Your data is protected with industry standards</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+     </div>
+     
+
     </div>
   </div>
-
+  
+<!-- Footer -->
+<footer class=" bg-primary text-white">
+  <div class="container">
+    <!-- Footer Note -->
+    <div class="text-center py-4">
+      <h6 class="fw-bold mb-1">Made with ❤️ by Shubhi Singh</h6>
+      <p class="mb-0">
+        A passionate developer dedicated to clean design and user-friendly software experiences.
+      </p>
+    </div>
+  </div>
+</footer>
 </section>
+</body>
 </html>
