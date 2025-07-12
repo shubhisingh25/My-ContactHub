@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       th:replace="~{base::layout(~{::section})}">
-<section class="min-vh-100 py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-  <div class="container">
-    <div class="card shadow-lg border-0 rounded-4 p-4 bg-white bg-opacity-75">
-      <div class="card-body">
+<section style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-height: 100vh; min-width: 100vw; display: flex; align-items: center; justify-content: center;">
+  <div class="container py-5 h-100">
+    <div class="card shadow-lg border-0 rounded-4 p-4 bg-white bg-opacity-75 h-100">
+      <div class="card-body d-flex flex-column h-100">
       
-       <div class="card-header bg-primary text-white text-center py-4 mb-4">
-        <h1 class="display-5 fw-bold mb-3">
-         <i class="bi bi-info-circle-fill me-2"></i> My ContactHub
-        </h1>
-        <p class="lead mb-0">
+        <!-- Intro Header -->
+        <div class="card-header bg-primary text-white text-center py-4 mb-4">
+          <h1 class="display-5 fw-bold mb-3">
+            <i class="bi bi-info-circle-fill me-2"></i> My ContactHub
+          </h1>
+          <p class="lead mb-0">
             My ContactHub is an intelligent platform designed to help you organize, secure, and visualize your contacts effortlessly.
-  Whether you're an individual or a team, our solution makes staying connected simple and effective.
-          
-        </p>
-      </div>
+            Whether you're an individual or a team, our solution makes staying connected simple and effective.
+          </p>
+        </div>
 
-        <div class="row g-4">
-          <div class="col-md-6">
+        <div class="row g-4 mb-4 flex-grow-1">
+          <!-- Why Choose Us -->
+          <div class="col-md-12 h-100">
             <div class="card border-0 shadow-sm h-100 bg-light">
               <div class="card-body">
                 <h3 class="h5 mb-3">
-                  <i class="bi bi-star-fill text-warning me-2"></i> Why Choose Us?
+                  <i class="bi bi-star-fill text-warning me-2"></i> Why We should use this?
                 </h3>
                 <ul class="list-unstyled">
                   <li class="mb-2">
@@ -33,10 +34,7 @@
                     <i class="bi bi-shield-lock text-success me-2"></i>
                     <strong>Enterprise-grade security</strong> with encrypted storage.
                   </li>
-                  <li class="mb-2">
-                    <i class="bi bi-robot text-info me-2"></i>
-                    <strong>AI-powered smart groups</strong> and recommendations.
-                  </li>
+               
                   <li class="mb-2">
                     <i class="bi bi-bar-chart-fill text-danger me-2"></i>
                     <strong>Visual insights</strong> into your network and connections.
@@ -45,8 +43,67 @@
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-md-6">
+        <!-- How to Use Section -->
+        <div class="card border-0 shadow-sm mb-4 bg-light flex-grow-1">
+          <div class="card-body d-flex flex-column">
+            <h1 class="display-5 h4 mb-4 text-center text-primary">
+              <i class="bi bi-question-circle-fill me-2"></i>
+               <span class="d-inline-block ms-1">✨</span> How to Use ContactHub
+                <span class="d-inline-block ms-1">✨</span>
+            </h1>
+            
+            <div class="row g-4 flex-grow-1">
+              <div class="col-md-4 d-flex">
+                <div class="text-center p-3 w-100">
+                  <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-person-plus-fill fs-4"></i>
+                  </div>
+                  <h4 class="h5">1. Add Contacts</h4>
+                  <p class="mb-0">
+                    Fill out the contact form with details like name, email, phone number, and any additional information.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="col-md-4 d-flex">
+                <div class="text-center p-3 w-100">
+                  <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-save-fill fs-4"></i>
+                  </div>
+                  <h4 class="h5">2. Save Information</h4>
+                  <p class="mb-0">
+                    Your contact information is securely saved in our database and displayed on your dashboard.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="col-md-4 d-flex">
+                <div class="text-center p-3 w-100">
+                  <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-pencil-square fs-4"></i>
+                  </div>
+                  <h4 class="h5">3. Manage Contacts</h4>
+                  <p class="mb-0">
+                    Easily update contact details or delete contacts you no longer need with simple click actions.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-4 text-center">
+              <p class="mb-0 fw-semibold">
+                <i class="bi bi-lightbulb-fill text-warning me-2"></i>
+                All your contacts are accessible from one centralized location for easy management!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Mission -->
+        <div class="row">
+          <div class="col-md-12">
             <div class="card border-0 shadow-sm h-100 bg-light">
               <div class="card-body">
                 <h3 class="h5 mb-3">
@@ -61,7 +118,7 @@
                 </h3>
                 <p>
                   Questions? Reach out at
-                  <a href="mailto:support@smartcontactmanager.com" class="fw-semibold">
+                  <a href="mailto:support@MyContactHub.com" class="fw-semibold">
                     support@MyContactHub.com
                   </a>.
                 </p>
@@ -70,11 +127,13 @@
           </div>
         </div>
 
-        <div class="text-center mt-5">
+        <!-- CTA Button -->
+        <div class="text-center mt-4">
           <a th:href="@{/signup}" class="btn btn-lg btn-warning fw-semibold shadow px-4 py-2">
             <i class="bi bi-rocket-takeoff-fill me-2"></i> Get Started Today
           </a>
         </div>
+
       </div>
     </div>
   </div>
