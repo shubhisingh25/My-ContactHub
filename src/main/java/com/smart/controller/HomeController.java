@@ -22,7 +22,7 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("title", "Home");
         return "home";
