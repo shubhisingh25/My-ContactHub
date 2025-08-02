@@ -12,61 +12,110 @@
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
           crossorigin="anonymous">
       
-        <!-- Font Awesome CSS -->
+    <!-- Font Awesome CSS -->
     <link rel="stylesheet" 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
           crossorigin="anonymous" 
           referrerpolicy="no-referrer" />
-          <!-- Delete sweet box alert start -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Delete sweet box alert start -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<script type="text/javascript">
-	
-		function deleteContact(cid)
-		{
-					
-					
-				swal({
-					  title: "Are you sure?",
-					  text: "You want to delete this contact !",
-					  icon: "warning",
-					  buttons: true,
-					  dangerMode: true,
-					})
-					.then((willDelete) => {
-					  if (willDelete) {
-					  		window.location="/user/delete/"+cid;
-					  } else {
-					    swal("Your contact is safe !!");
-					  }
-					});
-	
-		}
-	
-	</script>
-
-<!-- Delete sweet box alert start -->
+    <script type="text/javascript">
+        function deleteContact(cid) {
+            swal({
+                title: "Are you sure?",
+                text: "You want to delete this contact !",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location="/user/delete/"+cid;
+                } else {
+                    swal("Your contact is safe !!");
+                }
+            });
+        }
+    </script>
+    <!-- Delete sweet box alert start -->
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
     <title th:text="${title}">Base Layout</title>
+    <style>
+        /* Add these styles to fix the sidebar and content positioning */
+        body {
+          
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 56px; /* Height of navbar */
+        }
+        
+        .content {
+           
+            margin-left: 250px; /* Width of sidebar */
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 56px; /* Height of navbar */
+            left: 0;
+            width: 250px;
+            height: calc(100vh - 56px); /* Full height minus navbar */
+            overflow-y: auto;
+            transition: transform 0.3s;
+            z-index: 1000;
+            /* Remove any padding/margin that creates space */
+            padding-top: 0;
+            margin-top: 0;
+        }
+        
+        .sidebar.collapsed {
+            transform: translateX(-250px);
+        }
+        
+        .content.collapsed {
+            margin-left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-250px);
+            }
+            
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            
+            .content {
+                margin-left: 0;
+            }
+        }
+        
+        .fa-bars {
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        
+        /* Ensure navbar and sidebar are flush */
+        .navbar {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <a class="navbar-brand" th:href="@{/home}">Smart Contract Manager</a>
-    
-    
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+   
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto text-uppercase">
-            <li class="nav-item active "><a class="nav-link" href="#">Home <span
+            <li class="nav-item active"><a class="nav-link" href="#">Home <span
                         class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link" th:href="@{/user/profile}" ><span th:text="${user.name}"></span></a></li>
             <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
@@ -74,8 +123,6 @@
     </div>
 </nav>
 <!-- End Navbar -->
-<!-- Try using the official Font Awesome CDN link -->
-
 
 <!-- Sidebar -->
 <div class="sidebar bg-light text-dark">
@@ -84,7 +131,6 @@
     <a href="#" th:href="@{/user/show-contacts/0}" class="item text-dark"><i class="fas fa-users"></i> View Contacts</a>
     <a href="#" th:href="@{/user/add-contact}" class="item text-dark"><i class="fas fa-user-plus"></i> Add Contacts</a>
     <a href="#" th:href="@{/user/profile}" class="item text-dark"><i class="fas fa-id-card"></i> Your Profile</a>
-   <!--   <a href="#" class="item text-dark"><i class="fas fa-cog"></i> Settings</a>-->
     <a href="#" th:href="@{/logout}" class="item text-dark"><i class="fas fa-sign-out-alt"></i> Logout</a>
     <div class="divider"></div>
 </div>
@@ -92,16 +138,14 @@
 
 <!-- Main Content -->
 <div class="content">
-<i onclick="toggleSidebar()" class="fa-solid fa-bars"></i>
+    <i onclick="toggleSidebar()" class="fa-solid fa-bars"></i>
 
-
-
-<!-- Message box -->
-<div th:if="${message}" class="container">
-    <div th:classappend="${'alert-' + message.type}" class="alert text-center" role="alert">
-        <span th:text="${message.content}"></span>
+    <!-- Message box -->
+    <div th:if="${message}" class="container">
+        <div th:classappend="${'alert-' + message.type}" class="alert text-center" role="alert">
+            <span th:text="${message.content}"></span>
+        </div>
     </div>
-</div>
 
     <div th:replace="${content}"></div>
 </div>
@@ -114,6 +158,19 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
 <script th:src="@{/js/script.js}"></script>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const content = document.querySelector('.content');
+        
+        if (window.innerWidth <= 768) {
+            sidebar.classList.toggle('show');
+        } else {
+            sidebar.classList.toggle('collapsed');
+            content.classList.toggle('collapsed');
+        }
+    }
+</script>
 
 </body>
 </html>
