@@ -1,1 +1,121 @@
+/* ====== BASE RESET & TYPOGRAPHY ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    font-size: 16px; /* Base font size (mobile-first) */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ====== RESPONSIVE CONTAINER ====== */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Limits width on large screens */
+    margin: 0 auto;
+    padding: 0 1rem; /* Adds padding on mobile */
+}
+
+/* ====== FLEXIBLE MEDIA ====== */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ====== RESPONSIVE GRID SYSTEM (Flexbox) ====== */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem; /* Negative margin for gutters */
+}
+
+.col {
+    padding: 0 0.5rem; /* Column gutters */
+    flex: 1 0 100%; /* Full width on mobile */
+}
+
+/* Medium screens (tablets, 768px+) */
+@media (min-width: 768px) {
+    .col-md-6 { flex: 0 0 50%; } /* Half-width */
+    .col-md-4 { flex: 0 0 33.333%; } /* One-third */
+    .col-md-3 { flex: 0 0 25%; } /* One-fourth */
+}
+
+/* Large screens (laptops/desktops, 992px+) */
+@media (min-width: 992px) {
+    .col-lg-3 { flex: 0 0 25%; }
+    .col-lg-4 { flex: 0 0 33.333%; }
+    .col-lg-6 { flex: 0 0 50%; }
+}
+
+/* ====== RESPONSIVE NAVIGATION MENU ====== */
+.navbar {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+    background: #333;
+    padding: 1rem;
+}
+
+.navbar a {
+    color: white;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+/* Horizontal menu on tablets & laptops */
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* ====== RESPONSIVE FORMS ====== */
+input, select, textarea, button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Wider inputs on larger screens */
+@media (min-width: 768px) {
+    input, select, textarea {
+        width: auto;
+        min-width: 300px;
+    }
+    button {
+        width: auto;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* ====== UTILITY CLASSES FOR RESPONSIVE HIDING ====== */
+.hidden-mobile { display: none; } /* Hidden on mobile */
+.hidden-desktop { display: block; } /* Shown on mobile */
+
+@media (min-width: 768px) {
+    .hidden-mobile { display: block; } /* Shown on tablets+ */
+    .hidden-desktop { display: none; } /* Hidden on tablets+ */
+}
+
+/* ====== COMMON BREAKPOINTS ====== */
+/* Small (phones, < 768px) → Default (mobile-first) */
+/* Medium (tablets, ≥ 768px) */
+@media (min-width: 768px) { /* Adjustments for tablets */ }
+
+/* Large (laptops, ≥ 992px) */
+@media (min-width: 992px) { /* Adjustments for laptops */ }
+
+/* Extra Large (desktops, ≥ 1200px) */
+@media (min-width: 1200px) { /* Fine-tuning for big screens */ }
